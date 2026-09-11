@@ -26,8 +26,34 @@
         style.textContent='.p-d{position:relative;border:2px solid rgba(255,253,247,.9);animation:masterPulse 2.35s ease-in-out infinite}.p-d::before{content:"MAIS COMPLETO";position:absolute;top:17px;right:17px;padding:6px 10px;border-radius:100px;background:#FFFDF7;color:#C85B12;font-size:9px;font-weight:700;letter-spacing:.1em;box-shadow:0 8px 20px rgba(115,48,5,.2)}.p-d .tg{padding-right:104px}@keyframes masterPulse{0%,100%{transform:translateY(0);box-shadow:0 18px 40px rgba(224,112,28,.32),0 0 0 0 rgba(247,148,56,.28)}50%{transform:translateY(-5px);box-shadow:0 26px 52px rgba(224,112,28,.46),0 0 0 9px rgba(247,148,56,0)}}@media(prefers-reduced-motion:reduce){.p-d{animation:none!important}}';
         doc.head.appendChild(style);
         var palette=doc.createElement('style');
-        palette.textContent='.hero,.marquee+.sec,#protocolos{background:#fff!important}#resultados{background:#eef7ff!important}';
+        palette.textContent='.hero,.marquee+.sec,#protocolos,.stmt+.sec{background:#fff!important}#resultados,header,#mmenu{background:#eef7ff!important}';
         doc.head.appendChild(palette);
+        var resultImages=[
+          'assets/results/result-01.jpg',
+          'assets/results/result-02.jpg',
+          'assets/results/result-03.jpg',
+          'assets/results/result-04.jpg',
+          'assets/results/result-05.jpg',
+          'assets/results/result-06.jpg',
+          'assets/results/result-07.jpg',
+          'assets/results/result-08.jpg',
+          'assets/results/result-09.jpg',
+          'assets/results/result-10.jpg',
+          'assets/results/result-11.jpg',
+          'assets/results/result-12.jpg',
+          'assets/results/result-13.jpg',
+          'assets/results/result-14.jpg',
+          'assets/results/result-15.jpg',
+          'assets/results/result-16.jpg',
+          'assets/results/result-17.jpg'
+        ];
+        var resultsTrack=doc.getElementById('batrack');
+        if(resultsTrack){
+          resultsTrack.innerHTML=resultImages.concat(resultImages).map(function(src,index){
+            var position=(index%resultImages.length)+1;
+            return '<div class="bac"><img src="'+src+'" alt="Resultado real de acompanhamento SlimUp — antes e depois '+position+'" loading="lazy" decoding="async"></div>';
+          }).join('');
+        }
         doc.querySelectorAll('a.wa').forEach(function(link){
           link.href=link.href.replace(/phone=\d+/,'phone=5551998545166');
         });
